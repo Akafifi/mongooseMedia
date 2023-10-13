@@ -2,7 +2,7 @@ const { User, Thought } = require('../models');
 
 module.exports = {
   // Get all users
-  async getUsers(req, res) {
+  async getAllUsers(req, res) {
     try {
       const users = await User.find();
       res.json(users);
@@ -25,7 +25,7 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  // Create a course
+  // Create a User
   async createUser(req, res) {
     try {
       const user = await User.create(req.body);
