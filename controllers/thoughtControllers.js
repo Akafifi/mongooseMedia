@@ -10,7 +10,7 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  // Get a course
+  // Get a thought
   async getOneThought(req, res) {
     try {
       const thought = await Thought.findOne({ _id: req.params.thoughtId })
@@ -25,10 +25,10 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  // Create a course
+  // Create a Thought
   async createThought(req, res) {
     try {
-      const thought = await Course.create(req.body);
+      const thought = await Thought.create(req.body);
       res.json(thought);
     } catch (err) {
       console.log(err);
@@ -38,9 +38,9 @@ module.exports = {
   // Delete a course
   async deleteThought(req, res) {
     try {
-      const thought = await Thought.findOneAndDelete({ _id: req.params.courseId });
+      const thought = await Thought.findOneAndDelete({ _id: req.params.thoughtId });
 
-      if (!course) {
+      if (!thought) {
         return res.status(404).json({ message: 'No thought with that ID' });
       }
 
