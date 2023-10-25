@@ -10,13 +10,16 @@ const {
 
 } = require('../../controllers/userControllers')
 
-router.route('/:thoughtId').get(getAllUsers).post(createUser);
+router
+    .route('/')
+    .get(getAllUsers)
+    .post(createUser);
 
-router.route('getOneThought')
-
-router.put(updateUser)
-    
-router.delete(deleteUser)
+router
+    .route('/:id')
+    .get(getOneUser)
+    .put(updateUser)
+    .delete(deleteUser)
 
 router
   .route('/:userId/friends/:friendId')
